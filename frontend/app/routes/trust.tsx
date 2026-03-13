@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Globe, QrCode, Search, ShieldCheck, Loader2 } from "lucide-react";
-import Navbar from "~/components/Navbar";
-import Footer from "~/components/Footer";
-import QRScanner from "~/components/trust/QRScanner";
-import TrustResultPanel from "~/components/trust/TrustResultPanel";
-import { verifyInput } from "~/services/verifyService";
-import type { TrustResult, InputMode } from "~/types/trust";
+import { Globe, Barcode, Search, ShieldCheck, Loader2 } from "lucide-react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import BarcodeScanner from "../components/trust/BarcodeScanner";
+import TrustResultPanel from "../components/trust/TrustResultPanel";
+import { verifyInput } from "../services/verifyService";
+import type { TrustResult, InputMode } from "../types/trust";
 
 type PageState = "idle" | "loading" | "result";
 
@@ -36,7 +36,7 @@ export default function TrustScorePage() {
     await runVerification(normalised, "url");
   }
 
-  async function handleQRDetected(value: string) {
+  async function handleBarcodeDetected(value: string) {
     setShowScanner(false);
     await runVerification(value, "qr");
   }
@@ -77,7 +77,7 @@ export default function TrustScorePage() {
               Check Trust Score
             </h1>
             <p className="text-slate-400 text-sm md:text-base">
-              Enter a website URL or scan a product QR code to verify authenticity,
+              Enter a website URL or scan a product barcode to verify authenticity,
               registrations, and safety.
             </p>
           </div>
@@ -98,8 +98,8 @@ export default function TrustScorePage() {
                         : "text-slate-400 hover:text-slate-200"
                     }`}
                   >
-                    {m === "url" ? <Globe className="w-4 h-4" /> : <QrCode className="w-4 h-4" />}
-                    {m === "url" ? "Website URL" : "Scan QR Code"}
+                    {m === "url" ? <Globe className="w-4 h-4" /> : <Barcode className="w-4 h-4" />}
+                    {m === "url" ? "Website URL" : "Scan Barcode"}
                   </button>
                 ))}
               </div>
@@ -149,28 +149,28 @@ export default function TrustScorePage() {
                 <div className="flex flex-col items-center gap-4">
                   <div className="w-full border-2 border-dashed border-slate-700 rounded-2xl p-10 flex flex-col items-center gap-4 text-center">
                     <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center">
-                      <QrCode className="w-8 h-8 text-blue-400" />
+                      <Barcode className="w-8 h-8 text-blue-400" />
                     </div>
                     <div>
                       <p className="text-white font-semibold mb-1">Ready to scan</p>
                       <p className="text-slate-500 text-sm">
-                        Opens your device camera to scan the product QR code
+                        Opens your device camera to scan the product barcode
                       </p>
                     </div>
                     <button
                       onClick={() => setShowScanner(true)}
                       className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
                     >
-                      <QrCode className="w-4 h-4" />
+                      <Barcode className="w-4 h-4" />
                       Open Scanner
                     </button>
                   </div>
                   {/* Demo QR values */}
                   <div className="flex flex-wrap justify-center gap-2">
-                    {["QR-SAFE-999", "QR-FAKE-001", "QR-WARN-002"].map((val) => (
+                    {["BARCODE-SAFE-999", "BARCODE-FAKE-001", "BARCODE-WARN-002"].map((val) => (
                       <button
                         key={val}
-                        onClick={() => handleQRDetected(val)}
+                        onClick={() => handleBarcodeDetected(val)}
                         className="text-xs text-slate-600 hover:text-slate-400 bg-slate-800/50 hover:bg-slate-800 px-3 py-1 rounded-lg transition-colors font-mono"
                       >
                         Simulate: {val}
@@ -208,7 +208,7 @@ export default function TrustScorePage() {
       <Footer />
 
       {showScanner && (
-        <QRScanner onDetected={handleQRDetected} onClose={() => setShowScanner(false)} />
+        <BarcodeScanner onDetected={handleBarcodeDetected} onClose={() => setShowScanner(false)} />
       )}
 
       <style>{`
