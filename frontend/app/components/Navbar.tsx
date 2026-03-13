@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { ShieldCheck, ScanLine, LayoutDashboard, FileWarning, Menu, X } from "lucide-react";
+import { ScanLine, LayoutDashboard, FileWarning, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const NAV_LINKS = [
@@ -23,10 +23,8 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-5 h-15 flex items-center justify-between gap-4" style={{ height: "60px" }}>
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
-          <div className="w-8 h-8 bg-linear-to-br from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:shadow-blue-500/35 transition-shadow">
-            <ShieldCheck className="w-4.5 h-4.5 text-white" style={{ width: "18px", height: "18px" }} />
-          </div>
+        <Link to="/" className="flex items-center gap-2.5 shrink-0">
+          <img src="/logo.png" alt="ScanSafe" className="w-8 h-8 rounded-lg" />
           <span className="text-white font-bold text-[15px] tracking-tight">ScanSafe</span>
         </Link>
 

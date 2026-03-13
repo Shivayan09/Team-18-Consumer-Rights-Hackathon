@@ -20,10 +20,8 @@ export default function NotFound() {
 
       <div className="relative z-10 text-center max-w-md">
         {/* Logo */}
-        <Link to="/" className="inline-flex items-center gap-2 mb-12 group">
-          <div className="w-8 h-8 bg-linear-to-br from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-md shadow-blue-500/20">
-            <ShieldCheck style={{ width: 18, height: 18 }} className="text-white" />
-          </div>
+        <Link to="/" className="inline-flex items-center gap-2 mb-12">
+          <img src="/logo.png" alt="ScanSafe" className="w-8 h-8 rounded-lg" />
           <span className="text-white font-bold text-[15px] tracking-tight">ScanSafe</span>
         </Link>
 

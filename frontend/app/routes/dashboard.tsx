@@ -12,6 +12,7 @@ import {
 import { useNavigate, Link } from "react-router";
 import Navbar from "../components/Navbar";
 import type { Route } from "./+types/dashboard";
+import Footer from "~/components/Footer";
 
 // ── Types ────────────────────────────────────────────────────────
 
@@ -259,6 +260,8 @@ export default function Dashboard() {
 
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
