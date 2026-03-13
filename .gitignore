@@ -1,9 +1,18 @@
 **/node_modules/
+**/*.log*
+**/test/
+
 **/*.env*
+!**/.env.example
 
-.vscode/*
+**/dist/
+**/build/
+**/.react-router/
+**/*.tsbuildinfo
+
+.vscode/
 !.vscode/extensions.json
-.idea/*
+.idea/
 
-Thumbs.db
-.DS_Store
+**/Thumbs.db
+**/.DS_Store
