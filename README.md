@@ -17,9 +17,9 @@ The solution consists of a **Chrome extension + PWA/dashboard** with optional TT
 
 **Consumer Rights Violated:**
 
-1. **Right to Safety** – fake/exploding electronics, unsafe food.
-2. **Right to Be Informed** – misleading product info, hidden ingredients.
-3. **Right to Seek Redressal** – lack of easy complaint filing.
+1. **Right to Safety** - fake/exploding electronics, unsafe food.
+2. **Right to Be Informed** - misleading product info, hidden ingredients.
+3. **Right to Seek Redressal** - lack of easy complaint filing.
 
 ---
 

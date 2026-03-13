@@ -191,7 +191,7 @@ export default function FIRFilingPage() {
               </div>
 
               <p className="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto mb-8">
-                Our team will review your complaint within 24–48 hours. You'll receive updates via SMS on the number provided.
+                Our team will review your complaint within 24-48 hours. You'll receive updates via SMS on the number provided.
               </p>
 
               <button
